@@ -21,9 +21,12 @@ public class Author {
     @EqualsAndHashCode.Include
     private long id;
 
+    @EqualsAndHashCode.Exclude
     private String firstName;
+    @EqualsAndHashCode.Exclude
     private String lastName;
 
+    @EqualsAndHashCode.Exclude
     @ManyToMany(mappedBy = "authors")
     private Set<Book> books = new HashSet<>();
 

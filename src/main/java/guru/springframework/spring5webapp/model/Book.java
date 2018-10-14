@@ -18,11 +18,16 @@ public class Book {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @EqualsAndHashCode.Include private long id;
+    private long id;
+
+    @EqualsAndHashCode.Exclude
     private String title;
+    @EqualsAndHashCode.Exclude
     private String isbn;
+    @EqualsAndHashCode.Exclude
     private String publisher;
 
+    @EqualsAndHashCode.Exclude
     @ManyToMany
     @JoinTable(name = "author_book", joinColumns = @JoinColumn(name = "book_id"),
             inverseJoinColumns = @JoinColumn(name = "author_id"))
